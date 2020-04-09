@@ -4,6 +4,11 @@
     <title>coffeerun</title>
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <style>
+        form :focus:required:invalid {
+            border-color: #a94442;
+        }
+    </style>
 </head>
 <body class="container">
 <header>
@@ -16,12 +21,13 @@
     <form data-coffee-order="form">
         <div class="form-group">
             <label for="coffeeOrder">Coffee Order</label> 
-            <input class="form-control" name="coffee" id="coffeeOrder" autofocus /><!-- autofocus lets the input field load as first -->
+            <input class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+" /><!-- autofocus lets the input field load as first -->
         </div>
         <div class="form-group">
             <label for="emailInput">Email</label>
             <input class="form-control" type="email" name="email" 
-            id="emailInput" value="" placeholder="dr@who.com" />
+            id="emailInput" value="" placeholder="dr@who.com"
+            required />
         </div>
         <div class="radio">
             <label>
@@ -114,8 +120,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="webshim/polyfiller.js" charset="utf-8"></script>
+    <script src="scripts/validation.js.js" charset="utf-8"></script>
     <script src="scripts/checklist.js" charset="utf-8"></script>
     <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <script src="scripts/remotedatastore.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
     <script src="scripts/main.js" charset="utf-8"></script>
